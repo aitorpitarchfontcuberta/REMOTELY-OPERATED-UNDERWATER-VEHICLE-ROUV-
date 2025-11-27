@@ -1,0 +1,10 @@
+delete(instrfind({'Port'},{'COM3'}));
+clc;
+s=serial('COM3', 'BaudRate', 9600, 'Terminator', 'CR/LF');
+fopen(s);
+fprintf(s,'%s\n');
+file=fopen("resultats.txt", 'w');
+a=fscanf(s,'%d');
+fprintf(file, '%d\n',a);
+fclose(file);
+fclose(s);
